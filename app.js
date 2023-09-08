@@ -19,7 +19,6 @@ app.post('/nsb-ib/reCaptcha/validate', (req, res) => {
     const token = req.query.token;
 
     console.log('Token -->' + token)
-    console.log('Secret Key -->' + process.env.NSB_IB_SECRET_KEY)
 
     axios({
         method: 'POST',
