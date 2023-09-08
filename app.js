@@ -2,8 +2,10 @@ const http = require('http');
 const express = require('express');
 const axios = require('axios');
 const port = 9321;
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config();
 
 const server = http.createServer(app);
 
@@ -17,6 +19,7 @@ app.post('/nsb-ib/reCaptcha/validate', (req, res) => {
     const token = req.query.token;
 
     console.log('Token -->' + token)
+    console.log('Secret Key -->' + process.env.NSB_IB_SECRET_KEY)
 
     axios({
         method: 'POST',
